@@ -16,7 +16,7 @@ const CategoryChart = ({ transactions }) => {
   }));
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+    <div className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition">
       <h3 className="text-sm text-gray-500 mb-3">Spending Breakdown</h3>
 
       <ResponsiveContainer width="100%" height={250}>

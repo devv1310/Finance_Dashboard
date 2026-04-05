@@ -25,15 +25,12 @@ const InsightsPanel = ({ transactions }) => {
   )[0];
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-      <h3 className="text-sm text-gray-500 mb-2">Insights</h3>
+    <div className="bg-white rounded-2xl p-6 shadow-sm border">
+  <h3 className="text-gray-500 text-sm mb-2">Insights</h3>
 
-      <p>Total Spend: ₹{total}</p>
-
-      {topCategory && (
-        <p>Top Category: {topCategory[0]}</p>
-      )}
-    </div>
+  <p>Total Spend: ₹{total}</p>
+  <p>Top Category: {topCategory?.[0]}</p>
+</div>
   );
 };
 export default InsightsPanel;
