@@ -13,7 +13,7 @@ const SummaryCards = ({ transactions }) => {
 };
 
 const Card = ({ title, value, color }) => (
-  <div className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition">
+  <div className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-lg transition duration-200">
     <p className="text-gray-500 text-sm">{title}</p>
     <h2 className={`text-2xl font-bold mt-2 ${color}`}>
       ₹{value}

@@ -1,5 +1,5 @@
 const Button = ({ children, ...props }) => (
-  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition" {...props}>
+  <button className="px-2 py-1 text-sm rounded hover:bg-gray-100" {...props}>
     {children}
   </button>
 );

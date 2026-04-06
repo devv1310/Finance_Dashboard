@@ -1,12 +1,23 @@
 import { useStore } from "../../store/useStore";
 
 const TransactionFilters = () => {
-  const { search, setSearch, filterType, setFilterType } = useStore();
+  const { search, setSearch, filterType, setFilterType } =
+    useStore();
 
   return (
-    <div className="flex gap-3">
-      <input placeholder="Search transactions..." className="border border-gray-300 rounded-lg px-3 py-2 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-      <select className="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+    <div className="flex gap-3 mb-3">
+      <input
+        placeholder="Search..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="border px-3 py-2 rounded"
+      />
+
+      <select
+        value={filterType}
+        onChange={(e) => setFilterType(e.target.value)}
+        className="border px-3 py-2 rounded"
+      >
         <option value="all">All</option>
         <option value="income">Income</option>
         <option value="expense">Expense</option>
@@ -14,4 +25,5 @@ const TransactionFilters = () => {
     </div>
   );
 };
+
 export default TransactionFilters;

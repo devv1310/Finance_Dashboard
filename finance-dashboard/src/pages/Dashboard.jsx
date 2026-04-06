@@ -5,6 +5,7 @@ import BalanceChart from "../components/dashboard/BalanceChart";
 import CategoryChart from "../components/dashboard/CategoryChart";
 import InsightsPanel from "../components/insights/InsightsPanel";
 import TransactionTable from "../components/transactions/TransactionTable";
+import TransactionForm from "../components/transactions/TransactionForm";
 import { useStore } from "../store/useStore";
 
 const Dashboard = () => {
@@ -33,6 +34,7 @@ const Dashboard = () => {
 
           {/* Transactions */}
           <TransactionTable />
+          <TransactionForm />
         </div>
       </div>
     </div>

@@ -1,36 +1,49 @@
 import { useStore } from "../../store/useStore";
 import TransactionRow from "./TransactionRow";
+import TransactionFilters from "./TransactionFilters";
 
 const TransactionTable = () => {
   const { transactions, search, filterType } = useStore();
 
-  const filtered = transactions.filter((t) =>
-    t.category.toLowerCase().includes(search.toLowerCase()) &&
-    (filterType === "all" || t.type === filterType)
-  );
+  const filtered = transactions.filter((t) => {
+    return (
+      t.category.toLowerCase().includes(search.toLowerCase()) &&
+      (filterType === "all" || t.type === filterType)
+    );
+  });
 
   return (
-   <table className="w-full bg-white rounded-xl shadow-sm border overflow-hidden">
-  <thead className="bg-gray-50 text-gray-600 text-sm">
-    <tr>
-      <th className="text-left p-3">Date</th>
-      <th className="text-left">Category</th>
-      <th className="text-left">Amount</th>
-    </tr>
-  </thead>
+    <div className="bg-white p-5 rounded-xl border shadow-sm">
+      <h3 className="mb-4 font-semibold">Transactions</h3>
 
-  <tbody>
-    {filtered.map((t) => (
-      <tr className="border-t hover:bg-gray-50 transition">
-        <td className="p-3">{t.date}</td>
-        <td>{t.category}</td>
-        <td className={t.type === "expense" ? "text-red-500" : "text-green-600"}>
-          ₹{t.amount}
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+      <TransactionFilters />
+
+      <table className="w-full mt-4 text-sm">
+        <thead className="text-gray-500 border-b">
+          <tr>
+            <th className="text-left p-3">Date</th>
+            <th className="text-left">Category</th>
+            <th className="text-left">Amount</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {filtered.length > 0 ? (
+            filtered.map((t) => (
+              <TransactionRow key={t.id} t={t} />
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4" className="text-center p-4">
+                No transactions found
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 };
+
 export default TransactionTable;
